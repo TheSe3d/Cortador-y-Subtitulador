@@ -6,6 +6,12 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Sin publicar]
 
+## [1.0.0] - 2026-10-11
+
+### Corregido
+- El ejecutable de Windows ahora incluye el modelo de detección de voz, así que ya no falla al procesar.
+- El ejecutable ahora usa la GPU NVIDIA cuando está disponible.
+
 ## [0.1.0] - 2026-10-11
 
 ### Agregado

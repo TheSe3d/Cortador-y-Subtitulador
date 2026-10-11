@@ -19,21 +19,24 @@ Emit = Callable[..., None]
 
 
 def configurar_cuda():
-    """Registra las DLL de CUDA instaladas con pip (nvidia-cublas / nvidia-cudnn).
-
-    Debe llamarse antes de crear el modelo. Funciona en modo script y empaquetado con PyInstaller.
-    """
+    """Registra las DLL de CUDA para Windows, en modo script y en el .exe."""
     if os.name != "nt":
         return
     if getattr(sys, "frozen", False):
-        bases = [sys._MEIPASS]
+        base = sys._MEIPASS
     else:
-        bases = [p for p in sys.path if "site-packages" in p][:1]
-    for base in bases:
-        for ruta in (os.path.join(base, "nvidia", "cublas", "bin"),
-                     os.path.join(base, "nvidia", "cudnn", "bin")):
-            if os.path.isdir(ruta):
-                os.add_dll_directory(ruta)
+        bases = [p for p in sys.path if "site-packages" in p]
+        if not bases:
+            return
+        base = bases[0]
+    carpetas = [
+        os.path.join(base, "nvidia", "cublas", "bin"),
+        os.path.join(base, "nvidia", "cudnn", "bin"),
+    ]
+    for ruta in carpetas:
+        if os.path.isdir(ruta):
+            os.add_dll_directory(ruta)
+            os.environ["PATH"] = ruta + os.pathsep + os.environ.get("PATH", "")
 
 
 def format_time(seconds):
