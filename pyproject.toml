@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "subtitulador"
+version = "0.1.0"
+description = "Corta silencios y genera subtítulos SRT automáticamente con Whisper"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "Ángel Germán George Barragán" }]
+keywords = ["whisper", "subtitles", "srt", "ffmpeg", "speech-to-text", "video"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: Microsoft :: Windows",
+    "Topic :: Multimedia :: Video",
+]
+dependencies = ["faster-whisper>=1.1.0"]
+
+[project.optional-dependencies]
+cuda = ["nvidia-cublas-cu12", "nvidia-cudnn-cu12"]
+dev = ["pytest", "ruff"]
+
+[project.gui-scripts]
+subtitulador = "subtitulador.gui:main"
+
+[project.urls]
+Repositorio = "https://github.com/TheSe3d/subtitulador"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100

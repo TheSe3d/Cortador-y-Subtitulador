@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+
+# Medios de prueba y resultados
+*.mp4
+*.mkv
+*.mov
+*.avi
+*.mp3
+*.wav
+*.m4a
+*.flac
+*.ogg
+*_cortado*
+*.srt
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
