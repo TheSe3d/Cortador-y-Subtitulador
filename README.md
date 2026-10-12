@@ -116,4 +116,4 @@ Las contribuciones son bienvenidas. Lee [CONTRIBUTING.md](CONTRIBUTING.md) antes
 
 - [OpenAI Whisper](https://github.com/openai/whisper)
 - [faster-whisper](https://github.com/SYSTRAN/faster-whisper) (SYSTRAN)
-- [ffmpeg](https://ffmpeg.org/)
+- [ffmpeg](https://ffmpeg.org/) 
